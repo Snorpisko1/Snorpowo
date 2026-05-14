@@ -17,3 +17,10 @@ a {
     color: red;
     font-size: 200px;
 }
+
+@media (max-width: 600px) {
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
