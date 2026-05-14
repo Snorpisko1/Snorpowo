@@ -1,0 +1,19 @@
+video {
+    width: 90%;
+    height: 50%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    background-color: black;
+}
+
+a {
+    color: red;
+    font-size: 200px;
+}
