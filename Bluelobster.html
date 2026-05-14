@@ -12,6 +12,13 @@
         <video autoplay loop muted playsinline controls>
             <source src="bruv.mp4" type="video/mp4">
         </video>
+        <script>
+        document.body.addEventListener('click', function() {
+         const video = document.querySelector('video');
+         video.muted = false;
+         video.play();
+}, { once: true });
+        </script>
     </main>
 </body>
 </html>
