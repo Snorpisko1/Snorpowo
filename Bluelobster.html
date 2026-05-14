@@ -13,26 +13,23 @@
             <source src="bruv.mp4" type="video/mp4">
         </video>
     </main>
-    <script>
- 
-  function unlockVideo() {
-    const video = document.querySelector('video');
+<script>
+  const video = document.querySelector('video');
+  const playWithSound = () => {
     if (video) {
-      video.muted = false;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          console.log("Sukces: Wideo gra z dźwiękiem!");
-          document.removeEventListener('click', unlockVideo);
-          document.removeEventListener('touchstart', unlockVideo);
-        }).catch(error => {
-          console.error("Błąd odtwarzania:", error);
-        });
-      }
+      video.muted = false; // Kluczowy krok
+      video.play().then(() => {
+        console.log("Dźwięk odblokowany!");
+        // Usuwamy nasłuchiwanie po sukcesie, żeby nie obciążać procesora
+        window.removeEventListener('click', playWithSound);
+        window.removeEventListener('touchstart', playWithSound);
+      }).catch(error => {
+        console.log("Nadal blokuje: ", error);
+      });
     }
-  }
-  document.addEventListener('click', unlockVideo);
-  document.addEventListener('touchstart', unlockVideo);
+  };
+  window.addEventListener('click', playWithSound);
+  window.addEventListener('touchstart', playWithSound);
 </script>
 </body>
 </html>
