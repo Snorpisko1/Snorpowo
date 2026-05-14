@@ -18,7 +18,15 @@ a {
     font-size: 200px;
 }
 
+
 footer {
     text-align: center;
     color: white;
+}
+
+@media (max-width: 600px) {
+    video {
+        width: 100%;
+        height: auto;
+    }
 }
