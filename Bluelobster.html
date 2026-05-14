@@ -12,13 +12,27 @@
         <video autoplay loop playsinline controls>
             <source src="bruv.mp4" type="video/mp4">
         </video>
-        <script>
-        document.body.addEventListener('click', function() {
-         const video = document.querySelector('video');
-         video.muted = false;
-         video.play();
-}, { once: true });
-        </script>
     </main>
+    <script>
+ 
+  function unlockVideo() {
+    const video = document.querySelector('video');
+    if (video) {
+      video.muted = false;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log("Sukces: Wideo gra z dźwiękiem!");
+          document.removeEventListener('click', unlockVideo);
+          document.removeEventListener('touchstart', unlockVideo);
+        }).catch(error => {
+          console.error("Błąd odtwarzania:", error);
+        });
+      }
+    }
+  }
+  document.addEventListener('click', unlockVideo);
+  document.addEventListener('touchstart', unlockVideo);
+</script>
 </body>
 </html>
