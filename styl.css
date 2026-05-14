@@ -24,3 +24,8 @@ a {
         height: auto;
     }
 }
+
+footer {
+    text-align: center;
+    color: white;
+}
